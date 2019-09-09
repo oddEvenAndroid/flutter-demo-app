@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/services.dart';
+import 'register.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -9,6 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -49,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          if (email.toString().isEmpty && password.toString().isEmpty) {
+          if (emailController.text.isEmpty && passwordController.text.isEmpty) {
             Fluttertoast.showToast(
                 msg: "Please enter Email ID and Password",
                 toastLength: Toast.LENGTH_SHORT,
@@ -58,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
                 fontSize: 16.0);
-          } else if (email.toString().isEmpty) {
+          } else if (emailController.text.isEmpty) {
             Fluttertoast.showToast(
                 msg: "Please enter Email ID",
                 toastLength: Toast.LENGTH_SHORT,
@@ -67,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
                 fontSize: 16.0);
-          } else if (password.toString().isEmpty) {
+          } else if (passwordController.text.isEmpty) {
             Fluttertoast.showToast(
                 msg: "Please enter password",
                 toastLength: Toast.LENGTH_SHORT,
@@ -99,7 +102,10 @@ class _LoginPageState extends State<LoginPage> {
         'Forgot password?',
         style: TextStyle(color: Colors.black54),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => TextFormFieldDemo()));
+      },
     );
 
     return Scaffold(
