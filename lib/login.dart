@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final forgotLabel = FlatButton(
       child: Text(
-        'Forgot password?',
+        'Register Here',
         style: TextStyle(color: Colors.black54),
       ),
       onPressed: () {

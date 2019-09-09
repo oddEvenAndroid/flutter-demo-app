@@ -177,7 +177,35 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
       drawerDragStartBehavior: DragStartBehavior.down,
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Text fields'),
+        title: const Text('Register Form'),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => LoginPage());
+              Navigator.pushReplacement(context, route);
+            }),
+        actions: <Widget>[
+          /* PopupMenuButton(
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: IconButton(
+                    icon: Icon(Icons.email),
+                    onPressed: () {
+                      //clicked(context, "Email sent");
+                    },
+                  ),
+                ),
+              ];
+            },
+          ) */
+
+          new IconButton(
+            icon: new Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: SafeArea(
         top: false,
